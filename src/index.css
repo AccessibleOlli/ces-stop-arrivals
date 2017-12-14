@@ -5,13 +5,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #fff;
-  text-align: center;
+  font-weight: 700;
 }
 
 h1 {
   font-size: 36pt;
-  font-weight: 700;
 }
 
 .mapboxgl-map {
@@ -20,25 +18,21 @@ h1 {
 }
 
 .stop-placard {
-  border: 12px solid #444;
-  background-color: #0087bd;
+  /* border: 12px solid #444; */
+  color: white;
+  background-color: #046b99;
   padding: 12px;
 }
-
-.stop-info {
-  background-color: #444;
+.stop-placard>h1 {
+  text-align: left;
 }
 
 .stop-panel {
-  color: white;
-  background-color: #444;
-  border: 6px solid #444;
+  border: 2px solid #444;
   padding: 6px 12px;
 }
 
 .stop-panel h2 {
-  font-weight: 700;
-  font-size: 14pt;
   padding-bottom: 4px;
 }
 
@@ -46,7 +40,7 @@ h1 {
 button.bx--btn--secondary {
   display: inline-flex;
   background-color: white;
-  border-color: #0087bd;
+  border-color: #046b99;
   border-radius: 8px;
   margin: 2px 4px;
 }
@@ -133,4 +127,13 @@ button.btn--bigaction:focus {
   display: block;
   font-size: 14px;
   line-height: 18px;
+}
+
+.olli-logo {
+  height: 36px;
+  padding-right: 72px;
+}
+
+.stop-picture {
+  width: 386px;
 }

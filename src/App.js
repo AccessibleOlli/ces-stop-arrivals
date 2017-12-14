@@ -10,8 +10,8 @@ import Info from './components/info';
 import Arrival from './components/arrival';
 // import CallBus from './components/callbus';
 import StopHeader from './components/stop_header';
+import StopInfo from './components/stop_info';
 import Weather from './components/weather';
-import Credits from './components/credits';
 import PouchDB from 'pouchdb';
 import PouchDBFind from 'pouchdb-find';
 import { setOlliRoute, setOlliPosition, startOlliTrip, endOlliTrip } from './actions/index';
@@ -181,38 +181,41 @@ class App extends Component {
           </div>
 
           <div className="bx--row stop-info">
-            <div className="bx--col-xs-4 stop-panel"><Arrival /></div>
-            <div className="bx--col-xs-4 stop-panel">optimized for sight/hearing</div>
-            <div className="bx--col-xs-4 stop-panel" style={{textAlign:'right'}}><Clock /></div>
+            <div className="bx--col-xs-4 stop-panel"><h2>Bus Approaching</h2></div>
+            <div className="bx--col-xs-4 stop-panel"><h2>Next Bus</h2></div>
+            <div className="bx--col-xs-4 stop-panel">
+              <Clock />
+              <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
+            </div>
           </div>
 
           <div className="bx--row">
-            <div className="bx--col-xs-7 stop-panel">
-              <Map stop={this.state.stop} />
-            </div>
-            <div className="bx--col-xs-5 stop-panel">
+            <div className="bx--col-xs-4 stop-panel">
+              <div className="bx--row">
+                <div className="bx--col-xs-12">
+                  <img src="./img/roller-list.png" width="284px"/>
+                </div>
+              </div>
+
               <div className="bx--row">
                 <div className="bx--col-xs-12" style={{textAlign:'center'}}>
                   <img src="./img/signing.png" alt="Sign language interpreter" height="96px" width="100%" />
                 </div>
               </div>
-              <div className="bx--row" style={{minHeight:'100%'}}>
+
+              <div className="bx--row">
                 <div className="bx--col-xs-12">
-                  {/* <Progress /> */}
-                  <Info />
+                  <StopInfo stop={this.state.stop} />
                 </div>
               </div>
+
+            </div>
+
+            <div className="bx--col-xs-8 stop-panel">
+              <Map stop={this.state.stop} />
             </div>
           </div>
 
-          <div className="bx--row">
-            <div className="bx--col-xs-6 stop-panel">
-              <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
-            </div>
-            <div className="bx--col-xs-6 stop-panel">
-              <Credits />
-            </div>
-          </div>
         </div>
       </Provider>
     );
