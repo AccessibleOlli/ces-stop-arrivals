@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36pt;
+  font-weight: 700;
+}
+
+.mapboxgl-map {
+  min-height: 600px;
+  border: 6px solid #ddd;
+}
+
+.stop-placard {
+  border: 12px solid #444;
+  background-color: #0087bd;
+  padding: 12px;
+}
+
+.stop-info {
+  background-color: #444;
+}
+
+.stop-panel {
+  color: white;
+  background-color: #444;
+  border: 6px solid #444;
+  padding: 6px 12px;
+}
+
+.stop-panel h2 {
+  font-weight: 700;
+  font-size: 14pt;
+  padding-bottom: 4px;
+}
+
+
+button.bx--btn--secondary {
+  display: inline-flex;
+  background-color: white;
+  border-color: #0087bd;
+  border-radius: 8px;
+  margin: 2px 4px;
+}
+button>img {
+  padding-left: 4px;
+}
+
+button.btn--bigaction {
+  height: 88px;
+  border-width: 4px;
+  border-radius: 50%;
+}
+button.btn--bigaction:focus {
+  outline: unset;
+  background-color: rgba(255, 102, 102, 0.5);
+  border-width: 6px;
+}
+
+.clock, .credits {
+  font-size: 18pt;
+  font-weight: 500;
+  text-align: right;
+  height: 100%;
+}
+
+.credits-small {
+  font-size: 10pt;
+}
+
+.convo, .progresswin {
+  background-color: white;
+  padding: 6px;
+  text-align: left;
+}
+
+.convo {
+  width: 100%;
+  height: 100%;
+  color: #444;
+}
+
+.convo h1,.convo h2, .convo h3, .convo h4 {
+  color: #444;
+  text-align: left;
+  font-weight: 700;
+}
+.convo ol {
+  list-style: decimal inside;
+  line-height: normal;
+}
+
+.instructions {
+  font-weight: 300;
+  font-size: 10pt;
+  font-style: italic;
+  float: left;
+  color: white;
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.mapboxgl-popup-content {
+  background-color: coral;
+  font-size: 18pt;
+  border-radius: 18px;
+}
+
+.protoui {
+  border: 1px solid white;
+}
+
+.weather img {
+  height: 75px;
+  width: 75px;
+}
+
+.weather .forecast {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 15px;
+}
+
+.weather .forecast > span {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+}

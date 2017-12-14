@@ -1,0 +1,138 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": {
+        "name": "Mayo Gonda",
+        "description": "Mayo Clinic main patient building",
+        "poi": [
+          "Mayo Clinic specialties (cardiology, gastroenterology, neurology, etc.",
+          "May Clinic Gift Shop", "Mayo Clinic Center for Innovation",
+          "Gonda Building Atrium"
+        ],
+        "factoids": [
+          "Rochesters 2nd tallest building",
+          "Built in 2001",
+          "Connected to the Mayo Building",
+          "305 feet tall", "21 stories tall",
+          "Most doctors offices, exam rooms, and some testing areas, are located in Gonda and Mayo Buildings",
+          "Overall Mayos extended downtown campus comprises about 30 buildings and 5 parking ramps"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.467148454828, 44.022351687354]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Peace Plaza",
+        "description": "Social events, shops all around, music, Thursdays on First and Third",
+        "poi": [
+          "Chateau Theater (closed)",
+          "Lasker's Jewelers",
+          "Victoria's Restaurant",
+          "Galleria Mall",
+          "O&B Shoes",
+          "Marriott Hotel",
+          "Gateway to Heart of the City"
+        ],
+        "factoids": [
+          "Public park",
+          "Location of Thursdays on First and 3rd Summer Market and Music Festival",
+          "Host for SociallCE - Rochesters Winter Ice Bar",
+          "In the heart of downtown"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.464548669579, 44.022475156222]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Restaurant District",
+        "description": "Historic 3rd Street and 1st Ave Restaurant District. Food and boutique shops, antiques, artwork",
+        "poi": [
+          "The Doggery",
+          "The Tap House",
+          "Half Barrel Pub",
+          "Artistic Framers",
+          "John Kruesel's General Merchandise",
+          "Minnesota BioBusiness Center",
+          "The Loop"
+        ],
+        "factoids": [
+          "The Doggery",
+          "The Tap House",
+          "Half Barrel Pub",
+          "Artistic Framers",
+          "John Kruesel's General Merchandise",
+          "Minnesota BioBusiness Center",
+          "The Loop",
+          "Newts Restaurant",
+          "City Market Restaurant",
+          "Grand Rounds Brew Pub",
+          "Jefe Rojos Restaurant",
+          "University of Minnesota"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.464536948532, 44.020596506866]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Discovery Square",
+        "description": "Future site of Discovery Square. First Destination Medical Center building for the Discover Square District",
+        "poi": [
+          "Parking",
+          "Mortenson building"
+        ],
+        "factoids": [
+          "Urban life-science hub, attracting the worlds leading medical practitioners, educators, researchers and businesses",
+          "Invites positive collisions among Mayo doctors, researchers and entrepreneurs",
+          "Celebrates science on display and enables practitioners and educators to live and work alongside researchers and entrepreneurs",
+          "16 block sub-district built in collaboration with Mayo Clinic"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.466721277482, 44.019369728467]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mayo Guggenheim",
+        "description": "Mayo Clinic research laboratories",
+        "poi": [
+          "Mayo Clinic research laboratories",
+          "Mayo Medical School",
+          "Mayo Clinic Hilton building",
+          "Mayo Clinic Stabile building"
+        ],
+        "factoids": [
+          "Home of Mayo research laboratories",
+          "Developed the ketogenic diet for control of epilepsy",
+          "Performed the first heart-lung-liver transplant in the US",
+          "Developed and implemented the concept of integrated, multi-specialty group practice of medicine -- Mayo Clinics most enduring and significant contribution to medicine",
+          "Introduced the firt computerized tomography (CT) scanner in North America",
+          "Established the largest hart-liver transplant program in the US",
+          "Two Mayo Clinic staff members -- a resarch scientist and a clinician -- shared the 1950 Nobel Prize in Physiology or Medicine for the discovery of cortisone",
+          "Demonstrated that police cars equipped with Automated external defibrillators (AEDs) improve survival outcomes from cardiac arrest, leding to AEDs as standard issue in police cars",
+          "Established the first hospital-based blood bank in the US",
+          "Developed the first G-suit, a flight suit outfitted with air-filled bladders and a system of valves to protect pilots during high-speed maneuvers by increasing blood flow to the brain"
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-92.467330873686, 44.020779972144]
+      }
+    }
+  ]
+}
