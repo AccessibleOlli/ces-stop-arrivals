@@ -11,8 +11,10 @@ export default class Weather extends Component {
 
         this.state = {
             temp: '--',
+            phrase: '--', 
             feel: '--',
             humidity: '--',
+            uv: '--', 
             time: '--',
             icon: 'na',
             lat: OLLI_ROUTE.features[0].geometry.coordinates[0][1],
@@ -50,8 +52,10 @@ export default class Weather extends Component {
                     this.ts = (new Date()).getTime()
                     this.setState({
                         temp: data.temp,
+                        phrase: data.wx_phrase,
                         feel: data.feels_like,
                         humidity: data.rh,
+                        uv: data.uv_desc,
                         time: 0,
                         icon: data.wx_icon < 10 ? ('0' + data.wx_icon) : data.wx_icon
                     })
@@ -79,12 +83,31 @@ export default class Weather extends Component {
     render() {
         return (
             <div className="weather">
-                <img src={"img/weather/" + this.state.icon + ".png"} alt="weather icon"/>
+                
                 <div className="forecast">
-                    <span>{this.state.temp}&deg; F</span>
-                    <span>Feels like {this.state.feel}&deg;</span>
-                    <span>Humidity {this.state.humidity}%</span>
-                    <span>Updated {this.state.time} min ago</span>
+                    <table><tbody>
+                        <tr>
+                            <td rowSpan="5" style={{width:"84px"}}><img src={"img/weather/" + this.state.icon + ".png"} alt="weather icon"/></td>
+                            <td>{this.state.phrase}</td>
+                            <td>{this.state.temp}&deg; F</td>
+                        </tr>
+                        <tr>
+                            <td>Feels like</td>
+                            <td>{this.state.feel}&deg;</td>
+                        </tr>
+                        <tr className="small">
+                            <td>Humidity</td>
+                            <td>{this.state.humidity}%</td>
+                        </tr>
+                        <tr className="small">
+                            <td>UV risk</td>
+                            <td>{this.state.uv}%</td>
+                        </tr>
+                        <tr className="small">
+                            <td>Updated</td>
+                            <td>{this.state.time} min ago</td>
+                        </tr>
+                    </tbody></table>
                 </div>
             </div>
         );

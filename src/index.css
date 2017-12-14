@@ -59,13 +59,6 @@ button.btn--bigaction:focus {
   border-width: 6px;
 }
 
-.clock, .credits {
-  font-size: 18pt;
-  font-weight: 500;
-  text-align: right;
-  height: 100%;
-}
-
 .credits-small {
   font-size: 10pt;
 }
@@ -115,18 +108,28 @@ button.btn--bigaction:focus {
 .weather img {
   height: 75px;
   width: 75px;
+  position: relative;
+  top: -12px;
 }
 
 .weather .forecast {
-  display: inline-block;
   vertical-align: top;
-  padding: 0 15px;
 }
 
-.weather .forecast > span {
+/* .weather .forecast > span {
   display: block;
   font-size: 14px;
   line-height: 18px;
+} */
+
+.forecast table {
+  width: 100%;
+}
+tr.small {
+  font-size: 75%;
+}
+.forecast td {
+  vertical-align: top;
 }
 
 .olli-logo {

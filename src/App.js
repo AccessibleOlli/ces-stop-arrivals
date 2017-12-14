@@ -184,7 +184,7 @@ class App extends Component {
             <div className="bx--col-xs-4 stop-panel"><h2>Bus Approaching</h2></div>
             <div className="bx--col-xs-4 stop-panel"><h2>Next Bus</h2></div>
             <div className="bx--col-xs-4 stop-panel">
-              <Clock />
+              <h2><Clock /></h2>
               <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
             </div>
           </div>
