@@ -31,28 +31,6 @@ let Map = class Map extends React.Component {
     };
   }
 
-  //All arguments are optional:
-  //duration of the tone in milliseconds. Default is 500
-  //frequency of the tone in hertz. default is 440
-  //volume of the tone. Default is 1, off is 0.
-  //type of tone. Possible values are sine, square, sawtooth, triangle, and custom. Default is sine.
-  //callback to use on end of tone
-  beep(duration, frequency, volume, type, callback) {
-    let oscillator = audioCtx.createOscillator();
-    let gainNode = audioCtx.createGain();
-
-    oscillator.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
-
-    if (volume){gainNode.gain.value = volume;};
-    if (frequency){oscillator.frequency.value = frequency;}
-    if (type){oscillator.type = type;}
-    if (callback){oscillator.onended = callback;}
-
-    oscillator.start();
-    setTimeout(function(){oscillator.stop()}, (duration ? duration : 500));
-};
-
   updateMapBounds(coordinates) {
     const initalBounds = coordinates.reduce((bounds, coord) => {
       return bounds.extend(coord)
@@ -128,7 +106,7 @@ let Map = class Map extends React.Component {
     }
     this.map.getSource('olli-pois').setData(showpois);
     this.map.setLayoutProperty('olli-pois', 'visibility', 'visible');
-}
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.olliRoute !== this.props.olliRoute) {
@@ -136,7 +114,6 @@ let Map = class Map extends React.Component {
         return [coord.coordinates[0], coord.coordinates[1]];
       });
       this.updateMapBounds(coordinates);
-      // this.updateOlliRoute(coordinates);
     }
     if (nextProps.olliRouteVisibility !== this.props.olliRouteVisibility) {
       this.updateOlliRouteVisibility(nextProps.olliRouteVisibility);
@@ -157,6 +134,9 @@ let Map = class Map extends React.Component {
         this.map.addImage(imageid, image);
       }
     });
+  }
+
+  componentWillUpdate(prevProps, prevState) {
   }
 
   componentDidMount() {
@@ -213,6 +193,7 @@ let Map = class Map extends React.Component {
     });
 
     this.map.on('load', () => {
+      this.map.resize();
       this.addBasicMapLayers();
       this.props.setMapReady(true);
     });
