@@ -5,9 +5,6 @@ import { createStore } from 'redux'
 import reducers from './reducers';
 import Clock from './components/clock';
 import Map from './components/map';
-import Progress from './components/progress';
-import Info from './components/info';
-import Arrival from './components/arrival';
 import OlliLogo from './components/olli_logo';
 import StopHeader from './components/stop_header';
 import StopInfo from './components/stop_info';
