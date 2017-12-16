@@ -8,7 +8,7 @@ import Map from './components/map';
 import Progress from './components/progress';
 import Info from './components/info';
 import Arrival from './components/arrival';
-// import CallBus from './components/callbus';
+import OlliLogo from './components/olli_logo';
 import StopHeader from './components/stop_header';
 import StopInfo from './components/stop_info';
 import Weather from './components/weather';
@@ -173,49 +173,27 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className="bx--grid top-level-container">
-          <div className="bx--row">
-            <div className="stop-placard bx--col-xs-12">
-                <StopHeader stop={this.state.stop} />
-            </div>
+
+        <div className="cssgrid">
+
+          <div className="stop-placard"></div>
+          <OlliLogo />
+          <StopHeader stop={this.state.stop} />
+
+          <div className="arrival-list">
+            <img src="./img/roller-list.png" width="284px"/>
           </div>
 
-          <div className="bx--row stop-info">
-            <div className="bx--col-xs-4 stop-panel"><h2>Bus Approaching</h2></div>
-            <div className="bx--col-xs-4 stop-panel"><h2>Next Bus</h2></div>
-            <div className="bx--col-xs-4 stop-panel">
-              <h2><Clock /></h2>
-              <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
-            </div>
+          <StopInfo stop={this.state.stop} />
+
+          <div className="clock-weather">
+            <h2><Clock /></h2>
+            <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
           </div>
+          {/* <div className="bx--col-xs-4 stop-panel"><div className="box-title">Bus Approaching</div></div>
+          <div className="bx--col-xs-4 stop-panel"><div className="box-title">Next Bus</div></div> */}
 
-          <div className="bx--row">
-            <div className="bx--col-xs-4 stop-panel">
-              <div className="bx--row">
-                <div className="bx--col-xs-12">
-                  <img src="./img/roller-list.png" width="284px"/>
-                </div>
-              </div>
-
-              <div className="bx--row">
-                <div className="bx--col-xs-12" style={{textAlign:'center'}}>
-                  <img src="./img/signing.png" alt="Sign language interpreter" height="96px" width="100%" />
-                </div>
-              </div>
-
-              <div className="bx--row">
-                <div className="bx--col-xs-12">
-                  <StopInfo stop={this.state.stop} />
-                </div>
-              </div>
-
-            </div>
-
-            <div className="bx--col-xs-8 stop-panel">
-              <Map stop={this.state.stop} />
-            </div>
-          </div>
-
+          <Map stop={this.state.stop} />
         </div>
       </Provider>
     );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 export default class StopHeader extends Component {
 
@@ -9,7 +8,9 @@ export default class StopHeader extends Component {
         stopName = this.props.stop.properties.name;
     }
     return (
-      <h1 className="stop-name"><img className="olli-logo" src="./img/olli-logo.svg" />{stopName}</h1>
+        <div className="stop-name-div">
+          <h1 className="stop-name">{stopName}</h1>
+        </div>
     );
   }
 
