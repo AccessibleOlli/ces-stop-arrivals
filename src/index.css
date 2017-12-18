@@ -7,7 +7,7 @@ body {
 .cssgrid {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 12px;
+  /* grid-gap: 12px; */
   grid-auto-columns: minmax(100px, auto);
 }
 
@@ -28,6 +28,9 @@ body {
 
 .arrival-list, .stop-info, .clock-weather {
   grid-column: 1 / 2;
+  padding: 24px 12px 0 12px;
+  border-left: 4px solid #444444;
+  border-right: 4px solid #444444;
 }
 
 .mapboxgl-map {
@@ -53,6 +56,14 @@ h1 {
   color: white;
   background-color: #046b99;
   padding: 12px;
+}
+
+.arrival-list {
+  border-top: 4px solid #444444;
+}
+.clock-weather {
+  padding-bottom: 24px;
+  border-bottom: 4px solid #444444;
 }
 
 .weather img {
@@ -87,8 +98,8 @@ tr.small {
 
 .stop-info {
   padding-bottom: 12px;
-  border-top: 4px solid #b3efff;
-  border-bottom: 2px solid #b3efff;
+  /* border-top: 4px solid #b3efff;
+  border-bottom: 2px solid #b3efff; */
 }
 
 .stop-info h2 {
