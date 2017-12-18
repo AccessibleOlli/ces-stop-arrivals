@@ -10,10 +10,9 @@ import OLLI_ROUTE from '../data/route.json'
 import POIS from '../data/pois.json'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
+const MSG_NEAR_MEDICAL = 'Your destination is near a medical facility. If you need to go to one of these places after, I can give you directions.';
 const CENTER_LON = -92.466;
 const CENTER_LAT = 44.0214;
-const audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
-const MSG_NEAR_MEDICAL = 'Your destination is near a medical facility. If you need to go to one of these places after, I can give you directions.';
 
 let Map = class Map extends React.Component {
   map;

@@ -159,7 +159,7 @@ tr.small {
 }
 
 .stop-picture {
-  width: 386px;
+  max-width: 100%;
 }
 
 .stop-info {

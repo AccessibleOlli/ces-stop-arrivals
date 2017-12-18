@@ -12,7 +12,7 @@ export default class StopHeader extends Component {
     return (
       <div className="stop-info">
         <h2>Explore {stopName}</h2>
-        <div><img className="stop-picture" src="./img/pic_placeholder.png" /></div>
+        <div><img className="stop-picture" src="./img/discovery-square.png" /></div>
         <p>{stopDescription}</p>
       </div>
     );
