@@ -54,77 +54,6 @@ h1 {
   background-color: #046b99;
   padding: 12px;
 }
-.stop-placard>h1 {
-  text-align: left;
-}
-
-button.bx--btn--secondary {
-  display: inline-flex;
-  background-color: white;
-  border-color: #046b99;
-  border-radius: 8px;
-  margin: 2px 4px;
-}
-button>img {
-  padding-left: 4px;
-}
-
-button.btn--bigaction {
-  height: 88px;
-  border-width: 4px;
-  border-radius: 50%;
-}
-button.btn--bigaction:focus {
-  outline: unset;
-  background-color: rgba(255, 102, 102, 0.5);
-  border-width: 6px;
-}
-
-.credits-small {
-  font-size: 10pt;
-}
-
-.convo, .progresswin {
-  background-color: white;
-  padding: 6px;
-  text-align: left;
-}
-
-.convo {
-  width: 100%;
-  height: 100%;
-  color: #444;
-}
-
-.convo h1,.convo h2, .convo h3, .convo h4 {
-  color: #444;
-  text-align: left;
-  font-weight: 700;
-}
-.convo ol {
-  list-style: decimal inside;
-  line-height: normal;
-}
-
-.instructions {
-  font-weight: 300;
-  font-size: 10pt;
-  font-style: italic;
-  float: left;
-  color: white;
-  padding: 12px;
-  vertical-align: middle;
-}
-
-.mapboxgl-popup-content {
-  background-color: coral;
-  font-size: 18pt;
-  border-radius: 18px;
-}
-
-.protoui {
-  border: 1px solid white;
-}
 
 .weather img {
   height: 75px;
@@ -136,12 +65,6 @@ button.btn--bigaction:focus {
 .weather .forecast {
   vertical-align: top;
 }
-
-/* .weather .forecast > span {
-  display: block;
-  font-size: 14px;
-  line-height: 18px;
-} */
 
 .forecast table {
   width: 100%;
