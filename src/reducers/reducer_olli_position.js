@@ -15,7 +15,8 @@ export default function (state = null, action) {
             currentStop: null,
             previousStop: action.fromStop,
             nextStop: action.toStop,
-            nextStopProgress: 0.0
+            nextStopProgress: 0.0,
+            distanceRemaining: action.distanceRemaining
           };
         }
         break;
@@ -26,7 +27,8 @@ export default function (state = null, action) {
             currentStop: action.toStop,
             previousStop: action.fromStop,
             nextStop: null,
-            nextStopProgress: 1.0
+            nextStopProgress: 1.0,
+            distanceRemaining: action.distanceRemaining
           };
         }
         break;
@@ -38,7 +40,8 @@ export default function (state = null, action) {
             currentStop: state.currentStop,
             previousStop: state.previousStop,
             nextStop: state.nextStop,
-            nextStopProgress: action.progress
+            nextStopProgress: action.progress,
+            distanceRemaining: action.distanceRemaining
           }
         }
         break;

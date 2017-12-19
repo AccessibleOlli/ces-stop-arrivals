@@ -105,3 +105,24 @@ tr.small {
 .stop-info h2 {
   padding: 8px 0;
 }
+
+.arrival-stops li {
+  padding-bottom: 10px;
+}
+.arrival-stop-img,
+.arrival-stop-info {
+  display: inline-block;
+  vertical-align: middle;
+}
+.arrival-stop-img {
+  margin-right: 15px;
+}
+.arrival-stop-info {
+  width: calc(100% - 100px);
+}
+.arrival-stop-info > div:first-child {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 6px;
+  margin-top: -3px;
+}

@@ -8,6 +8,7 @@ import Map from './components/map';
 import OlliLogo from './components/olli_logo';
 import StopHeader from './components/stop_header';
 import StopInfo from './components/stop_info';
+import ArrivalInfo from './components/arrival_info';
 import Weather from './components/weather';
 import PouchDB from 'pouchdb';
 import PouchDBFind from 'pouchdb-find';
@@ -178,7 +179,8 @@ class App extends Component {
           <StopHeader stop={this.state.stop} />
 
           <div className="arrival-list">
-            <img src="./img/roller-list.png" width="284px"/>
+            {/* <img src="./img/roller-list.png" width="284px"/> */}
+            <ArrivalInfo/>
           </div>
 
           <StopInfo stop={this.state.stop} />
