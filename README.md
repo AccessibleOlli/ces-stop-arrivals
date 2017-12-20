@@ -7,7 +7,7 @@
 1. Install [Node](https://nodejs.org)
 2. Clone this repo
   - *change to directory where you want to install*
-  - `git clone git@github.com:AccessibleOlli/olli-stop.git`
+  - `git clone git@github.com:AccessibleOlli/ces-stop-arrivals.git`
 3. Install node modules
   - `cd olli-stop`
   - `npm install`
