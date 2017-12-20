@@ -9,7 +9,7 @@
   - *change to directory where you want to install*
   - `git clone git@github.com:AccessibleOlli/ces-stop-arrivals.git`
 3. Install node modules
-  - `cd olli-stop`
+  - `cd ces-stop-arrivals`
   - `npm install`
 4. Create a text file in the root directory called `.env` and insert this:
 
