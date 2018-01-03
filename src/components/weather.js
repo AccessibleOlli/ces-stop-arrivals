@@ -86,12 +86,12 @@ export default class Weather extends Component {
                 
                 <div className="forecast">
                     <table><tbody>
-                        <tr>
+                        <tr className="weather-line-1">
                             <td rowSpan="5" style={{width:"84px"}}><img src={"img/weather/" + this.state.icon + ".png"} alt="weather icon"/></td>
                             <td>{this.state.phrase}</td>
                             <td>{this.state.temp}&deg; F</td>
                         </tr>
-                        <tr>
+                        <tr className="weather-line-2">
                             <td>Feels like</td>
                             <td>{this.state.feel}&deg;</td>
                         </tr>

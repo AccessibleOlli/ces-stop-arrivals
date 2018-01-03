@@ -14,7 +14,8 @@
 4. Create a text file in the root directory called `.env` and insert this:
 
 ```
-REACT_APP_REMOTE_WS=wss://ollisim.mybluemix.net
+REACT_APP_REMOTE_TELEMETRY_DB=http://admin:password@127.0.0.1:5984/telemetry_transitions
+REACT_APP_REMOTE_EVENT_DB=http://admin:password@127.0.0.1:5984/rule_event_transitions
 REACT_APP_OLLI_STOP_IDX=3
 ```
 

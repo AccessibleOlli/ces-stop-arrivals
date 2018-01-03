@@ -26,11 +26,26 @@ body {
   grid-row: 1 / 2;
 }
 
-.arrival-list, .stop-info, .clock-weather {
+.stops-list, .stop-info {
   grid-column: 1 / 2;
   padding: 24px 12px 0 12px;
   border-left: 4px solid #444444;
   border-right: 4px solid #444444;
+}
+
+.clock-weather {
+  grid-column: 1 / 2;
+  grid-row: 6 / 7;
+  border: 4px solid #444444;
+  padding: 24px;
+}
+
+.stop-bus-arrival {
+  grid-column: 2 / 3;
+  grid-row: 6 / 7;
+  border: 4px solid #444444;
+  border-left: 0 none;
+  padding: 24px;
 }
 
 .mapboxgl-map {
@@ -58,12 +73,12 @@ h1 {
   padding: 12px;
 }
 
-.arrival-list {
+.stops-list {
   border-top: 4px solid #444444;
 }
-.clock-weather {
-  padding-bottom: 24px;
-  border-bottom: 4px solid #444444;
+
+.weather {
+  margin-top: 25px;
 }
 
 .weather img {
@@ -125,4 +140,21 @@ tr.small {
   font-size: 1.2em;
   margin-bottom: 6px;
   margin-top: -3px;
+}
+
+.bus-next {
+  border-right: 1px solid #444444;
+}
+.bus-approaching,
+.bus-next {
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+}
+.bus-approaching > *,
+.bus-next > * {
+  padding: 5px;
+}
+.bus-time {
+  font-size: 1.75em;
 }
