@@ -8,17 +8,22 @@ import Map from './components/map';
 import OlliLogo from './components/olli_logo';
 import StopHeader from './components/stop_header';
 import StopInfo from './components/stop_info';
+import StopsArrivalList from './components/stops_arrival_list';
+import StopBusArrival from './components/stop_bus_info';
 import Weather from './components/weather';
 import PouchDB from 'pouchdb';
 import PouchDBFind from 'pouchdb-find';
 import { setOlliRoute, setOlliPosition, startOlliTrip, endOlliTrip } from './actions/index';
 import Stops from './data/stops.json';
+import OLLI_ROUTE from './data/route.json';
 
 require('dotenv').config()
 PouchDB.plugin(PouchDBFind);
 
 const store = createStore(reducers);
 const REMOTE_WS = process.env['REACT_APP_REMOTE_WS'];
+const REMOTE_TELEMETRY_DB = process.env['REACT_APP_REMOTE_TELEMETRY_DB'];
+const REMOTE_EVENT_DB = process.env['REACT_APP_REMOTE_EVENT_DB'];
 const REMOTE_DB = process.env['REACT_APP_REMOTE_DB'] || 'https://0fdf5a9b-8632-4315-b020-91e60e1bbd2b-bluemix.cloudant.com/ollilocation';
 const OLLI_STOP_IDX = parseInt(process.env['REACT_APP_OLLI_STOP_IDX'], 10) || 0;
 
@@ -34,11 +39,15 @@ class App extends Component {
     this.state = {
       stop: Stops.features[OLLI_STOP_IDX]
     }
+    store.dispatch(setOlliRoute(OLLI_ROUTE));
     if (REMOTE_WS) {
       this.startWebsocket();
     }
+    else if (REMOTE_TELEMETRY_DB && REMOTE_EVENT_DB) {
+      this.startPouchDBAOSim();
+    }
     else {
-      this.startPouchDB();
+      this.startPouchDBOlliSim();
     }
   }
 
@@ -116,15 +125,16 @@ class App extends Component {
     });
   }
 
-  startPouchDB() {
+  startPouchDBOlliSim() {
     this.db = new PouchDB(REMOTE_DB, {});
-    this.changes = this.db.changes({
+    this.db.changes({
       since: 'now',
       live: true,
       include_docs: true
     })
       .on('change', change => {
         if (store.getState().mapReady && change && change.doc && change.doc.type) {
+          // olli-sim
           if (change.doc.type === 'route_info') {
             store.dispatch(setOlliRoute(change.doc));
           }
@@ -135,7 +145,7 @@ class App extends Component {
             store.dispatch(endOlliTrip(change.doc));
           }
           else if (change.doc.type === 'geo_position') {
-            if (! store.getState().ollieRoute) {
+            if (! store.getState().olliRoute) {
               this.db.createIndex({
                 index: {
                   fields: [{'type': 'desc'},{'ts': 'desc'}]
@@ -167,30 +177,105 @@ class App extends Component {
     });
   }
 
+  startPouchDBAOSim() {
+    // telemetry
+    this.db = new PouchDB(REMOTE_TELEMETRY_DB, {});
+    this.db.changes({
+      since: 'now',
+      live: true,
+      include_docs: true
+    })
+      .on('change', change => {
+        if (store.getState().mapReady && change && change.doc) {
+          if (change.doc._id === 'telemetry_transition') {
+            // ao_sim
+            let ollis = [];
+            while(true) {
+              let i = ollis.length;
+              let property = `olli_${i+1}`;
+              if (change.doc.transport_data.olli_vehicles.hasOwnProperty(property)) {
+                ollis.push(change.doc.transport_data.olli_vehicles[property]);
+              }
+              else {
+                break;
+              }
+            }
+            for(let i=0; i<ollis.length; i++) {
+              let doc = {
+                olliId: `olli_${i+1}`,
+                coordinates: ollis[i].geometry.coordinates,
+                distance_travelled: 0.14278461869690082,
+                distance_remaining: 0.05605209177030407,
+                properties: ollis[i].properties,
+                offset: ollis[i].offset,
+                ts: change.doc.timestamp
+              };
+              if (! store.getState().olliRoute) {
+                console.log('No olli route. Cannot update olli position.');
+              }
+              else {
+                store.dispatch(setOlliPosition(doc));
+              }
+            }
+          }
+        }
+      }).on('complete', info => {
+      }).on('paused', () => {
+      }).on('error', err => {
+        console.log(err);
+    });
+    // events
+    this.db2 = new PouchDB(REMOTE_EVENT_DB, {});
+    this.db2.changes({
+      since: 'now',
+      live: true,
+      include_docs: true
+    })
+      .on('change', change => {
+        if (store.getState().mapReady && change && change.doc) {
+          if (change.doc._id.startsWith('Trip Start')) {
+            console.log('Trip Start - TBD');
+            console.log(change.doc);
+            //store.dispatch(stopOlliTrip(change.doc));
+          }
+          else if (change.doc._id.startsWith('Trip Stop')) {
+            console.log('Trip Stop - TBD');
+            console.log(change.doc);
+            //store.dispatch(stopOlliTrip(change.doc));
+          }
+        }
+      }).on('complete', info => {
+      }).on('paused', () => {
+      }).on('error', err => {
+        console.log(err);
+    });
+    
+  }
+
   render() {
     return (
       <Provider store={store}>
-
         <div className="cssgrid">
-
           <div className="stop-placard"></div>
           <OlliLogo />
           <StopHeader stop={this.state.stop} />
 
-          <div className="arrival-list">
-            <img src="./img/roller-list.png" width="284px"/>
+          <div className="stops-list">
+            <StopsArrivalList/>
           </div>
 
           <StopInfo stop={this.state.stop} />
+
+          <Map stop={this.state.stop} />
 
           <div className="clock-weather">
             <h2><Clock /></h2>
             <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
           </div>
-          {/* <div className="bx--col-xs-4 stop-panel"><div className="box-title">Bus Approaching</div></div>
-          <div className="bx--col-xs-4 stop-panel"><div className="box-title">Next Bus</div></div> */}
 
-          <Map stop={this.state.stop} />
+          <div className="stop-bus-arrival">
+            <StopBusArrival stop={this.state.stop} />
+          </div>
         </div>
       </Provider>
     );
