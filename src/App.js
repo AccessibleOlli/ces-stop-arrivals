@@ -9,6 +9,7 @@ import OlliLogo from './components/olli_logo';
 import StopHeader from './components/stop_header';
 import StopInfo from './components/stop_info';
 import StopsArrivalList from './components/stops_arrival_list';
+import StopBusList from './components/stop_bus_list';
 import StopBusArrival from './components/stop_bus_info';
 import Weather from './components/weather';
 import PouchDB from 'pouchdb';
@@ -261,7 +262,11 @@ class App extends Component {
           <StopHeader stop={this.state.stop} />
 
           <div className="stops-list">
-            <StopsArrivalList/>
+            <StopBusList stop={this.state.stop} />
+          </div>
+
+          <div className="stops-list">
+            <StopsArrivalList />
           </div>
 
           <StopInfo stop={this.state.stop} />
