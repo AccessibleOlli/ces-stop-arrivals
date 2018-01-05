@@ -121,7 +121,8 @@ tr.small {
   padding: 8px 0;
 }
 
-.arrival-stops li {
+.arrival-stops li,
+.arrival-buses li {
   padding-bottom: 10px;
 }
 .arrival-stop-img,
