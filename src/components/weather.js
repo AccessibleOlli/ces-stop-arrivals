@@ -69,8 +69,8 @@ export default class Weather extends Component {
     componentDidMount () {
         if (this.props.serviceurl) {
             // commented out to save on our rate-limited weather service requests
-            // this.getWeather();
-            // this.timer = setInterval(() => this.getWeather(), 10 * 1000 * 60); // every 10 min
+            this.getWeather();
+            this.timer = setInterval(() => this.getWeather(), 10 * 1000 * 60); // every 10 min
         }
     }
 

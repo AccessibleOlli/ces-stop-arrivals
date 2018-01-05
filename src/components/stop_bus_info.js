@@ -34,7 +34,7 @@ class StopBusArrival extends Component {
     for (let i = 0; i < positions.length; i++) {
       let p = positions[i]
       if (!skipolli || skipolli !== p.olliId) {
-        console.log('skip: ', p.olliId, skipolli)
+        // console.log('skip: ', p.olliId, skipolli)
         let diff = this.stopoffset - p.offset
         if (diff >= 0 && diff < closest) {
           closest = diff
@@ -47,7 +47,7 @@ class StopBusArrival extends Component {
       for (let i = 0; i < positions.length; i++) {
         let p = positions[i]
         if (!skipolli || skipolli !== p.olliId) {
-          console.log('skip: ', p.olliId, skipolli)
+          // console.log('skip: ', p.olliId, skipolli)
           let diff = (this.stopoffset + 640) - p.offset
           if (diff < closest) {
             closest = diff

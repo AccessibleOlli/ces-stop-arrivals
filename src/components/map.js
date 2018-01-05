@@ -389,7 +389,7 @@ let Map = class Map extends React.Component {
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v9',
       center: [CENTER_LON, CENTER_LAT], 
-      zoom: 16
+      zoom: 17
     });
 
     let imagenames = ['olli-icon-svg.png', 'olli-stop-color.png', 'noun_1012350_cc.png', 'noun_854071_cc.png', 'noun_1015675_cc.png', 'youarehere.png','yourdest.png'];

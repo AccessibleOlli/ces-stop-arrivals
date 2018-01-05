@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import OLLI_STOPS from '../data/stops.json'
+const OLLI_STOP_IDX = parseInt(process.env['REACT_APP_OLLI_STOP_IDX'], 10) || 0;
 
 class StopsArrivalList extends Component {
   constructor (props) {
@@ -121,18 +122,21 @@ class StopsArrivalList extends Component {
       return <div>Stops not yet available</div>
     } else {
       return (
-        <ul className="arrival-stops">
-          {this.state.stops.map(stop =>
-            <li key={stop.id}>
-              {/* <div className="arrival-stop-img"><img src={'img/' + stop.status + '.png'} alt={stop.status}/></div> */}
-              <div className="arrival-stop-img"><img src={'img/roller-list-stop.png'} alt={stop.status}/></div>
-              <div className="arrival-stop-info">
-                <div>{stop.name}</div>
-                <span>{stop.arriving}</span>
-              </div>
-            </li>
-          )}
-        </ul>
+        <div className="arrivals-list-all">
+          <h2>Other Stops</h2>
+          <ul className="arrival-stops">
+            {this.state.stops.map(stop =>
+              <li key={stop.id}>
+                {/* <div className="arrival-stop-img"><img src={'img/' + stop.status + '.png'} alt={stop.status}/></div> */}
+                <div className="arrival-stop-img"><img src={'img/roller-list-stop.png'} alt={stop.status}/></div>
+                <div className="arrival-stop-info">
+                  <div>{stop.name}</div>
+                  <span>{stop.arriving.replace("_", " ")}</span>
+                </div>
+              </li>
+            )}
+          </ul>
+        </div>
       )
     }
   }

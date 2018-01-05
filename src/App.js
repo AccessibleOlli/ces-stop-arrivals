@@ -41,11 +41,10 @@ class App extends Component {
       stop: Stops.features[OLLI_STOP_IDX]
     }
     store.dispatch(setOlliRoute(OLLI_ROUTE));
-    if (REMOTE_WS) {
-      this.startWebsocket();
-    }
-    else if (REMOTE_TELEMETRY_DB && REMOTE_EVENT_DB) {
+    if (REMOTE_TELEMETRY_DB && REMOTE_EVENT_DB) {
       this.startPouchDBAOSim();
+    } else if (REMOTE_WS) {
+      this.startWebsocket();
     }
     else {
       this.startPouchDBOlliSim();
@@ -257,30 +256,27 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="cssgrid">
-          <div className="stop-placard"></div>
           <OlliLogo />
           <StopHeader stop={this.state.stop} />
 
-          <div className="stops-list">
+          <div id="col1">
+            <StopInfo stop={this.state.stop} />
             <StopBusList stop={this.state.stop} />
-          </div>
-
-          <div className="stops-list">
             <StopsArrivalList />
           </div>
 
-          <StopInfo stop={this.state.stop} />
+          <div id="col2">
+            <div className="clock-weather">
+              <h2><Clock /></h2>
+              <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
+            </div>
 
-          <Map stop={this.state.stop} />
-
-          <div className="clock-weather">
-            <h2><Clock /></h2>
-            <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
+            <Map stop={this.state.stop} />
           </div>
 
-          <div className="stop-bus-arrival">
+          {/* <div className="stop-bus-arrival">
             <StopBusArrival stop={this.state.stop} />
-          </div>
+          </div> */}
         </div>
       </Provider>
     );

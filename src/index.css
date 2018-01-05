@@ -1,84 +1,99 @@
+html, body, #root, .cssgrid {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  font-family: 'ibm-plex-sans', Helvetica Neue, Arial, sans-serif;
+  line-height: 1;
   margin: 1em;
   padding: 0;
-  background-color: #fff;
+  background-color: #444444;
+  color: #444444;
 }
 
 .cssgrid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  /* grid-gap: 12px; */
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 264px 1fr;
   grid-auto-columns: minmax(100px, auto);
+  background-color: #ffffff;
 }
 
-.stop-placard {
-  grid-column: 1 / 3;
-  grid-row: 1 / 2;
+.olli-logo-div, .stop-name-div {
+  grid-row: 1;
+  height: 264px;
 }
-
 .olli-logo-div {
   grid-column: 1 / 2;
-  grid-row: 1 / 2;
 }
 
-.stop-name-div {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
-
-.stops-list, .stop-info {
+#col1 { 
   grid-column: 1 / 2;
-  padding: 24px 12px 0 12px;
-  border-left: 4px solid #444444;
-  border-right: 4px solid #444444;
+  grid-row: 2 / 3;
 }
 
-.clock-weather {
-  grid-column: 1 / 2;
-  grid-row: 6 / 7;
-  border: 4px solid #444444;
-  padding: 24px;
-}
-
-.stop-bus-arrival {
+#col2 {
   grid-column: 2 / 3;
-  grid-row: 6 / 7;
-  border: 4px solid #444444;
-  border-left: 0 none;
-  padding: 24px;
+  grid-row: 2 / 3;
 }
 
 .mapboxgl-map {
-  grid-column: 2 / 3;
-  grid-row: 2 / 6;
+  height: 100%;
 }
 
-.stop-panel .box-title {
-  font-size: 18pt;
-  text-align: center;
+#col2 {
+  border-left: 6px solid #046b99;
+}
+.clock-weather {
+  border-bottom: 6px solid #046b99;
   padding-bottom: 8px;
+}
+
+.stop-info, .clock-weather, .arrivals-list-stop, .arrivals-list-all {
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #ffffff;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  margin: 0.5em 0 0.25em 0;
 }
-
 h1 {
-  font-size: 48pt;
+  font-size: 42pt;
+  line-height: 1.25;
+}
+h1.stop-name {
+  line-height: 364px;
+}
+h1.destination {
+  margin: 0;
+}
+h2 {
+  font-size: 24pt;
+  text-align: left;
+  color: #046b99;
+}
+.arrivals-list-stop h1 {
+  text-align: center;
+  color: #046b99;
 }
 
-.stop-placard, .olli-logo-div, .stop-name-div {
+.olli-logo-div, .stop-name-div {
   color: white;
   background-color: #046b99;
-  padding: 12px;
 }
 
 .stops-list {
-  border-top: 4px solid #444444;
+  border-left: 6px solid #046b99;
+  border-right: 6px solid #046b99;
+  border-bottom: 6px solid #046b99;
 }
 
-.weather {
-  margin-top: 25px;
+.clock-weather>h2 {
+  text-align: right;
 }
 
 .weather img {
@@ -95,8 +110,12 @@ h1 {
 .forecast table {
   width: 100%;
 }
+tr {
+  font-size: 120%;
+  line-height: 1.25em;
+}
 tr.small {
-  font-size: 75%;
+  font-size: 85%;
 }
 .forecast td {
   vertical-align: top;
@@ -121,9 +140,15 @@ tr.small {
   padding: 8px 0;
 }
 
+.arrival-buses {
+  font-size: 18pt;
+}
+.arrival-stops {
+  font-size: 14pt;
+}
 .arrival-stops li,
 .arrival-buses li {
-  padding-bottom: 10px;
+  padding-bottom: 0.5em;
 }
 .arrival-stop-img,
 .arrival-stop-info {
@@ -158,4 +183,8 @@ tr.small {
 }
 .bus-time {
   font-size: 1.75em;
+}
+
+.arrival-stop-info span {
+  text-transform: capitalize;
 }

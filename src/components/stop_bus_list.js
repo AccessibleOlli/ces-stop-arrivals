@@ -21,23 +21,29 @@ class StopBusList extends Component {
     if (diff < 0) {
       diff += 640
     }
-
+    let time = this.getArrivingTime(diff);
     return {
       id: position.olliId,
-      status: this.getArrivingMessage(diff),
+      time: time,
+      status: this.getArrivingMessage(time),
       img: this.getRollingListStatus(diff)
     }
   }
 
-  getArrivingMessage (diff) {
+  getArrivingTime(diff) {
+    if (diff === 0 ) return -1;
+    if (diff < 4 ) return 0;
+    return ( ((diff * 500) / 1000) / 60 );
+  }
+
+  getArrivingMessage (time) {
     let msg = '--'
 
-    if (diff === 0) {
+    if (time < 0 ) {
       msg = `Arrived`
-    } else if (diff < 4) {
+    } else if (time === 0) {
       msg = `Arriving now`
     } else {
-      let time = ((diff * 500) / 1000) / 60
       let min = Math.floor(time)
       let sec = Math.floor((time - min) * 60)
       if (time <= 1) {
@@ -65,7 +71,8 @@ class StopBusList extends Component {
       buses: positions.map(p => {
         return this.getOlliArrivalStatus(p)
       }).sort((a, b) => {
-        return a.id.localeCompare(b.id)
+        // return a.id.localeCompare(b.id)
+        return a.time - b.time
       })
     })
   }
@@ -78,21 +85,31 @@ class StopBusList extends Component {
 
   render () {
     if (this.state.buses.length === 0) {
-      return <div>Bus info not yet available</div>
+      return <div><h2>Bus info not yet available</h2></div>
     } else {
+      // let sortedbuses = [];
+      // for (let i = 0; i < this.state.buses.length; i++) 
+      //   sortedbuses.push(this.state.buses[i]);
+      // sortedbuses = sortedbuses.sort( (a, b) => {
+      //   return (a.status - b.status);
+      // });
+
       return (
-        <ul className="arrival-buses">
-          {this.state.buses.map(bus =>
-            <li>
-              <div className="arrival-stop-img"><img src={'img/' + bus.img + '.png'} alt={bus.img}/></div>
-              {/* <div className="arrival-stop-img"><img src={'img/roller-list-stop.png'} alt={'bus-' + bus.id}/></div> */}
-              <div className="arrival-stop-info">
-                <div>{bus.status}</div>
-                <span>{bus.id}</span>
-              </div>
-            </li>
-          )}
-        </ul>
+        <div className="arrivals-list-stop">
+          <h2>Arrivals</h2>
+          <ul className="arrival-buses">
+            {this.state.buses.map(bus =>
+              <li>
+                <div className="arrival-stop-img"><img src={'img/' + bus.img + '.png'} alt={bus.img}/></div>
+                {/* <div className="arrival-stop-img"><img src={'img/roller-list-stop.png'} alt={'bus-' + bus.id}/></div> */}
+                <div className="arrival-stop-info">
+                  <div>{bus.status}</div>
+                  <span>{bus.id.replace("_", " ")}</span>
+                </div>
+              </li>
+            )}
+          </ul>
+        </div>
       )
     }
   }
