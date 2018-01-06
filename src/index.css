@@ -36,10 +36,12 @@ body {
 
 #col2 {
   grid-column: 2 / 3;
-  grid-row: 2 / 3;
+  grid-row: 2 / 4;
 }
 
 .mapboxgl-map {
+  /* shouldn't need this but kintrans does weird things... */
+  /* margin-top: 48px; */
   height: 100%;
 }
 
@@ -188,4 +190,19 @@ tr.small {
 
 .arrival-stop-info span {
   text-transform: capitalize;
+}
+
+.kintrans-avatar {
+  background-color: #444444;
+}
+
+.kintrans-avatar-text {
+  height: 48px;
+  background-color: #444444;
+}
+
+.kintrans-avatar-text h2 {
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.75em;
 }
