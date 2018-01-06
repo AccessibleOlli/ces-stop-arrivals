@@ -122,8 +122,8 @@ tr.small {
 }
 
 .olli-logo {
-  height: 36px;
-  padding-right: 72px;
+  height: 72px;
+  padding: 12px 72px 12px 12px;
 }
 
 .stop-picture {
@@ -157,6 +157,7 @@ tr.small {
 }
 .arrival-stop-img {
   margin-right: 15px;
+  height: 64px;
 }
 .arrival-stop-info {
   width: calc(100% - 100px);
