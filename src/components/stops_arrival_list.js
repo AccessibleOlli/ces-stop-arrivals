@@ -128,7 +128,7 @@ class StopsArrivalList extends Component {
             {this.state.stops.map(stop =>
               <li key={stop.id}>
                 {/* <div className="arrival-stop-img"><img src={'img/' + stop.status + '.png'} alt={stop.status}/></div> */}
-                <div className="arrival-stop-img"><img src={'img/roller-list-stop.png'} alt={stop.status}/></div>
+                <img className="arrival-stop-img" src={'img/olli-side-icon.svg'} alt={stop.status}/>
                 <div className="arrival-stop-info">
                   <div>{stop.name}</div>
                   <span>{stop.arriving.replace("_", " ")}</span>

@@ -9,9 +9,9 @@ class StopBusList extends Component {
 
     this.state = {
       buses: [
-        { id: '--', status: '--', img: 'roller-list-stop' },
-        { id: '--', status: '--', img: 'roller-list-stop' },
-        { id: '--', status: '--', img: 'roller-list-stop' }
+        { id: '--', status: '--', img: 'olli-side-icon.svg' },
+        { id: '--', status: '--', img: 'olli-side-icon.svg' },
+        { id: '--', status: '--', img: 'olli-side-icon.svg' }
       ]
     }
   }
@@ -57,11 +57,11 @@ class StopBusList extends Component {
   }
 
   getRollingListStatus (diff) {
-    let src = 'roller-list-stop'
+    let src = 'olli-side-icon.svg'
     /* if (diff <= 2) {
       src = 'roller-list-stop-arriving'
     } else */ if (diff <= 60) {
-      src = 'roller-list-stop-next'
+      src = 'olli-side-icon-next.svg'//'roller-list-stop-next.png'
     }
     return src
   }
@@ -100,8 +100,8 @@ class StopBusList extends Component {
           <ul className="arrival-buses">
             {this.state.buses.map(bus =>
               <li>
-                <div className="arrival-stop-img"><img src={'img/' + bus.img + '.png'} alt={bus.img}/></div>
-                {/* <div className="arrival-stop-img"><img src={'img/roller-list-stop.png'} alt={'bus-' + bus.id}/></div> */}
+                <img className="arrival-stop-img" src={'img/' + bus.img} alt={bus.img}/>
+                {/* <div className="arrival-stop-img"><img src={'img/olli-side-icon.svg'} alt={'bus-' + bus.id}/></div> */}
                 <div className="arrival-stop-info">
                   <div>{bus.status}</div>
                   <span>{bus.id.replace("_", " ")}</span>
