@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 1073741824,
+"dataUrl": "KinTransAvatarBuild.data.unityweb",
+"asmCodeUrl": "KinTransAvatarBuild.asm.code.unityweb",
+"asmMemoryUrl": "KinTransAvatarBuild.asm.memory.unityweb",
+"asmFrameworkUrl": "KinTransAvatarBuild.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}
