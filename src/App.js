@@ -5,7 +5,7 @@ import { createStore } from 'redux'
 import reducers from './reducers';
 import Clock from './components/clock';
 import KinTrans from './components/kintrans';
-import Map from './components/map';
+import MapWrapper from './components/map_wrapper';
 import OlliLogo from './components/olli_logo';
 import StopHeader from './components/stop_header';
 import StopInfo from './components/stop_info';
@@ -267,14 +267,16 @@ class App extends Component {
           </div>
 
           <div id="col2">
+            <div className="clock-weather-wrapper">
             <div className="clock-weather">
               <h2><Clock /></h2>
               <Weather serviceurl={WEATHER_URL} refreshrate={WEATHER_REFRESH_MIN} />
             </div>
+            </div>
 
             <KinTrans stop={this.state.stop} />
 
-            <Map stop={this.state.stop} />
+            <MapWrapper stop={this.state.stop} />
           </div>
 
           {/* <div className="stop-bus-arrival">

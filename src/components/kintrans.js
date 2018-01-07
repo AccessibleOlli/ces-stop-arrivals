@@ -83,7 +83,8 @@ class KinTrans extends Component {
   render() {
     let text = this.unityLoaded ? this.state.currentText : '';   
     return (
-      <div>
+      <div className="kintrans-wrapper">
+      <div className="kintrans">
         <div className="kintrans-avatar">
           <Unity
               src='./kintrans/Build/KinTransAvatarBuild.json'
@@ -94,6 +95,7 @@ class KinTrans extends Component {
         <div className="kintrans-avatar-text">
           <h2>{text}</h2>
         </div>
+      </div>
       </div>
     );
   }

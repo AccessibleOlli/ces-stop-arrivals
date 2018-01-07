@@ -100,7 +100,7 @@ class StopBusList extends Component {
           <ul className="arrival-buses">
             {this.state.buses.map(bus =>
               <li>
-                <img className="arrival-stop-img" src={'img/' + bus.img} alt={bus.img}/>
+                <img className="arrival-stop-img" src={'img/' + bus.img} alt={bus.id+' '+bus.status}/>
                 {/* <div className="arrival-stop-img"><img src={'img/olli-side-icon.svg'} alt={'bus-' + bus.id}/></div> */}
                 <div className="arrival-stop-info">
                   <div>{bus.status}</div>

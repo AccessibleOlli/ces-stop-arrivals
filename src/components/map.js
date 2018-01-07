@@ -10,7 +10,7 @@ import POIS from '../data/pois.json'
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 const MSG_NEAR_MEDICAL = 'Your destination is near a medical facility. If you need to go to one of these places after, I can give you directions.';
 const CENTER_LON = -92.466;
-const CENTER_LAT = 44.0214;
+const CENTER_LAT = 44.0205;
 
 let Map = class Map extends React.Component {
   map;
@@ -389,7 +389,7 @@ let Map = class Map extends React.Component {
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v9',
       center: [CENTER_LON, CENTER_LAT], 
-      zoom: 17
+      zoom: 16
     });
 
     let imagenames = ['olli-icon-svg.png', 'olli-stop-color.png', 'noun_1012350_cc.png', 'noun_854071_cc.png', 'noun_1015675_cc.png', 'youarehere.png','yourdest.png'];
@@ -438,7 +438,7 @@ let Map = class Map extends React.Component {
     });
 
     this.map.on('load', () => {
-      this.map.resize();
+      // this.map.resize();
       this.addBasicMapLayers();
       this.props.setMapReady(true);
     });
