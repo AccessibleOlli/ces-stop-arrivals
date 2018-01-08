@@ -74,7 +74,7 @@ class KinTrans extends Component {
         if (this.getOlliArrivalTime(position) < 0) {
           this.setAvatarMessage(this.getArrivedKinTransMessage(position.olliId), this.getArrivedTextMessage(position.olliId));
           setTimeout(() => {
-
+            this.setState({currentText: ''});
           }, CLEAR_ARRIVED_MESSAGE_TIME);
         }
       }
