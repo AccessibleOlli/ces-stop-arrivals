@@ -82,16 +82,17 @@ class KinTrans extends Component {
   }
 
   render() {
-    let text = this.unityLoaded ? this.state.currentText : '';   
+    //let text = this.unityLoaded ? this.state.currentText : '';   
+    let text = this.state.currentText;
     return (
       <div className="kintrans-wrapper">
       <div className="kintrans">
         <div className="kintrans-avatar">
-          <Unity
+          {/* <Unity
               src='./kintrans/Build/KinTrans Avatar Build.json'
               loader='./kintrans/Build/UnityLoader.js'
               onProgress={(e) => {this.onUnityProgress(e)} }
-          />
+          /> */}
         </div>
         <div className="kintrans-avatar-text">
           <h2>{text}</h2>

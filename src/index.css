@@ -226,5 +226,6 @@ tr.small {
 .kintrans-avatar-text h2 {
   color: #ffffff;
   margin: 0;
+  padding-left: 5px;
   line-height: 1.75em;
 }
