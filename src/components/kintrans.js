@@ -4,8 +4,7 @@ import { bindActionCreators } from 'redux';
 import Unity from 'react-unity-webgl'
 import { SendMessage } from 'react-unity-webgl'
 
-const WAIT_TIME_AFTER_WELCOME = 3000;
-const WAIT_TIME_AFTER_STOP = 5000;
+const CLEAR_ARRIVED_MESSAGE_TIME = 10000;
 
 class KinTrans extends Component {
 
@@ -48,12 +47,11 @@ class KinTrans extends Component {
   }
 
   getArrivedKinTransMessage(olliId) {
-    // return XXX
-    return 'i need help';
+    return 'olli arrive';
   }
 
   getArrivedTextMessage(olliId) {
-    return `${olliId} has arrived.`;
+    return 'Olli is arriving';
   }
 
   getArrivingTime(diff) {
@@ -75,6 +73,9 @@ class KinTrans extends Component {
       for (let position of this.props.olliPositions) {
         if (this.getOlliArrivalTime(position) < 0) {
           this.setAvatarMessage(this.getArrivedKinTransMessage(position.olliId), this.getArrivedTextMessage(position.olliId));
+          setTimeout(() => {
+
+          }, CLEAR_ARRIVED_MESSAGE_TIME);
         }
       }
     }
@@ -87,7 +88,7 @@ class KinTrans extends Component {
       <div className="kintrans">
         <div className="kintrans-avatar">
           <Unity
-              src='./kintrans/Build/KinTransAvatarBuild.json'
+              src='./kintrans/Build/KinTrans Avatar Build.json'
               loader='./kintrans/Build/UnityLoader.js'
               onProgress={(e) => {this.onUnityProgress(e)} }
           />
