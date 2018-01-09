@@ -54,6 +54,14 @@ class KinTrans extends Component {
     return 'Olli is arriving';
   }
 
+  getStoppedKinTransMessage(olliId) {
+    return 'disembark';
+  }
+
+  getStoppedTextMessage(olliId) {
+    return 'Olli will	be stopped as long as you need';
+  }
+
   getArrivingTime(diff) {
     if (diff === 0 ) return -1;
     if (diff < 4 ) return 0;
