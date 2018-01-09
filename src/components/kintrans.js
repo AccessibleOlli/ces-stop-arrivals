@@ -88,11 +88,11 @@ class KinTrans extends Component {
       <div className="kintrans-wrapper">
       <div className="kintrans">
         <div className="kintrans-avatar">
-          {/* <Unity
-              src='./kintrans/Build/KinTrans Avatar Build.json'
+          <Unity
+              src='./kintrans/Build/olli.json'
               loader='./kintrans/Build/UnityLoader.js'
               onProgress={(e) => {this.onUnityProgress(e)} }
-          /> */}
+          />
         </div>
         <div className="kintrans-avatar-text">
           <h2>{text}</h2>
