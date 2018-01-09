@@ -397,45 +397,6 @@ let Map = class Map extends React.Component {
     for (var idx = 0; idx < imagenames.length; idx++) {
       this.loadImage(imagenames[idx], imageids[idx]);
     }
-    
-    this.map.on('click', evt => {
-      if (warningpopup) warningpopup.remove();
-
-      let bbox = [[evt.point.x-5, evt.point.y-5], [evt.point.x+5, evt.point.y+5]]; // set bbox as 5px rectangle area around clicked point
-      let features = this.map.queryRenderedFeatures(bbox, {layers: ['olli-stops']});
-      if (this.state.stopSelected && features.length>0) {
-        if (this.state.destination && this.state.destination.properties.name === features[0].properties.name) {
-          // reset the destination stop and leave map in a clean state
-          this.props.mapMessage({__html: "<h2>Welcome. Where would you like to go?</h2><p>Select a stop on the map.</p>"}, []);
-          this.map.getSource('olli-destination').setData({'type': 'FeatureCollection', 'features': []});
-          this.setState({destination: null, stopSelected: false});
-          return;
-        }
-      }
-
-      let layerid = this.state.stopSelected ? 'olli-pois' : 'olli-stops';
-      features = this.map.queryRenderedFeatures(bbox, {layers: [layerid]});
-
-      if (!this.state.stopSelected) {
-        if (features.length>0) {
-          this.map.getSource('olli-destination').setData(features[0]);
-          this.setState({destination: features[0], stopSelected: true});
-          this.getNearbyPOIs(features[0]);
-        } else {
-          this.beep(300, 300);
-          var warningpopup = new mapboxgl.Popup({closeButton: false})
-            .setLngLat([CENTER_LON, CENTER_LAT])
-            .setHTML('Please press on a bus stop')
-            .addTo(this.map);
-        }
-
-      } else {
-        if (features.length>0) {
-          // there's a stop selected, and the click has found some features from the POIs layer
-          this.props.mapMessage({__html: "<h3>"+features[0].properties.name+"</h3>"});
-        }
-      }
-    });
 
     this.map.on('load', () => {
       // this.map.resize();
