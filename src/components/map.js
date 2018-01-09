@@ -477,6 +477,29 @@ let Map = class Map extends React.Component {
         'line-opacity': 0.4
       }
     });
+    this.map.addLayer({
+      'id': 'olli-stops-w3w',
+      'source': {
+        'type': 'geojson',
+        'data': OLLI_STOPS
+      },
+      'type': 'symbol',
+      'paint': {
+        'text-color': "#444444",
+        'text-halo-color': "#fff", //"#0087bd",
+        'text-halo-width': 4, 
+        'text-halo-blur': 1
+      },
+      'layout': {
+        'icon-image': 'olli-stop',
+        'icon-optional': true,
+        'icon-size': 0.15, 
+        'text-font': ["Open Sans Semibold","Open Sans Regular","Arial Unicode MS Regular"],
+        'text-field': '{what3words}', 
+        'text-size': 12, 
+        'text-offset': [6, 0]
+      }
+    });
       this.map.addLayer({
         'id': 'olli-stops',
         'source': {
