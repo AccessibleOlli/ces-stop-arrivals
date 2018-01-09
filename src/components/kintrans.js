@@ -54,6 +54,14 @@ class KinTrans extends Component {
     return 'Olli is arriving';
   }
 
+  getStoppedKinTransMessage(olliId) {
+    return 'disembark';
+  }
+
+  getStoppedTextMessage(olliId) {
+    return 'Olli will	be stopped as long as you need';
+  }
+
   getArrivingTime(diff) {
     if (diff === 0 ) return -1;
     if (diff < 4 ) return 0;
@@ -88,11 +96,11 @@ class KinTrans extends Component {
       <div className="kintrans-wrapper">
       <div className="kintrans">
         <div className="kintrans-avatar">
-          {/* <Unity
-              src='./kintrans/Build/KinTrans Avatar Build.json'
+          <Unity
+              src='./kintrans/Build/olli.json'
               loader='./kintrans/Build/UnityLoader.js'
               onProgress={(e) => {this.onUnityProgress(e)} }
-          /> */}
+          />
         </div>
         <div className="kintrans-avatar-text">
           <h2>{text}</h2>
