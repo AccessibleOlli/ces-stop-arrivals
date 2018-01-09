@@ -71,9 +71,19 @@ let Map = class Map extends React.Component {
             'data': data
           },
           'type': 'symbol',
+          'paint': {
+            'text-color': '#046b99',
+            'text-halo-color': "#fff",
+            'text-halo-width': 4, 
+            'text-halo-blur': 1
+          },
           'layout': {
             'icon-image': 'olli',
-            'icon-size': 0.75
+            'icon-size': 0.75,
+            'text-font': ["Open Sans Semibold","Open Sans Regular","Arial Unicode MS Regular"],
+            'text-field': 'line84', 
+            'text-size': 12, 
+            'text-offset': [0, 2]
           }
         });
       }
@@ -178,9 +188,20 @@ let Map = class Map extends React.Component {
               'data': data
             },
             'type': 'symbol',
+            'paint': {
+              'text-color': '#046b99',
+              'text-halo-color': "#fff",
+              'text-halo-width': 4, 
+              'text-halo-blur': 1
+            },
             'layout': {
               'icon-image': 'olli',
-              'icon-size': 0.75
+              'icon-size': 0.75,
+              'text-field': 'olli_1',
+              'text-font': ["Open Sans Semibold","Open Sans Regular","Arial Unicode MS Regular"],
+              'text-field': `${olliId}`, 
+              'text-size': 12, 
+              'text-offset': [0, 3]
             }
           });
         }
