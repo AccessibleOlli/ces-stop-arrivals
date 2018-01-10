@@ -46,10 +46,11 @@ class StopBusList extends Component {
     } else {
       let min = Math.floor(time)
       let sec = Math.floor((time - min) * 60)
-      if (time <= 1) {
-        msg = `Arriving in 1 min`
+      if (time < 1) {
+        // msg = `Arriving in 1 min`
+        msg = `Arriving in ${(sec < 10 ? '0' : '') + sec} seconds`
       } else {
-        msg = `Arriving in ${min}:${(sec < 10 ? '0' : '') + sec} mins`
+        msg = `Arriving in ${min}:${(sec < 10 ? '0' : '') + sec} minutes`
       }
     }
 

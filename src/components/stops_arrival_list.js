@@ -72,10 +72,11 @@ class StopsArrivalList extends Component {
         let time = ((closest.offset * 500) / 1000) / 60
         let min = Math.floor(time)
         let sec = Math.floor((time - min) * 60)
-        if (time <= 1) {
-          msg = `${closest.olli} arriving in 1 min`
+        if (time < 1) {
+          // msg = `${closest.olli} arriving in 1 min`
+          msg = `${closest.olli} arriving in ${(sec < 10 ? '0' : '') + sec} seconds`
         } else {
-          msg = `${closest.olli} arriving in ${min}:${(sec < 10 ? '0' : '') + sec} mins`
+          msg = `${closest.olli} arriving in ${min}:${(sec < 10 ? '0' : '') + sec} minutes`
         }
       }
     }
