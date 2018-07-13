@@ -4,14 +4,15 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import reducers from './reducers';
 import Clock from './components/clock';
-import KinTrans from './components/kintrans';
+import KinTransFake from './components/kintransfake';
+// import KinTrans from './components/kintrans';
 import MapWrapper from './components/map_wrapper';
 import OlliLogo from './components/olli_logo';
 import StopHeader from './components/stop_header';
 import StopInfo from './components/stop_info';
 import StopsArrivalList from './components/stops_arrival_list';
 import StopBusList from './components/stop_bus_list';
-import StopBusArrival from './components/stop_bus_info';
+// import StopBusArrival from './components/stop_bus_info';
 import Weather from './components/weather';
 import PouchDB from 'pouchdb';
 import PouchDBFind from 'pouchdb-find';
@@ -146,7 +147,7 @@ class App extends Component {
             store.dispatch(endOlliTrip(change.doc));
           }
           else if (change.doc.type === 'geo_position') {
-            if (! store.getState().olliRoute) {
+                if (! store.getState().olliRoute) {
               this.db.createIndex({
                 index: {
                   fields: [{'type': 'desc'},{'ts': 'desc'}]
@@ -274,7 +275,7 @@ class App extends Component {
             </div>
             </div>
 
-            <KinTrans stop={this.state.stop} />
+            <KinTransFake stop={this.state.stop} />
 
             <MapWrapper stop={this.state.stop} />
           </div>
