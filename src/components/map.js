@@ -197,7 +197,6 @@ let Map = class Map extends React.Component {
             'layout': {
               'icon-image': 'olli',
               'icon-size': 0.75,
-              'text-field': 'olli_1',
               'text-font': ["Open Sans Semibold","Open Sans Regular","Arial Unicode MS Regular"],
               'text-field': `${olliId}`, 
               'text-size': 12, 

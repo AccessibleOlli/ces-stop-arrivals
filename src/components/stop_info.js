@@ -20,26 +20,25 @@ export default class StopHeader extends Component {
   }
 
   render() {
-    console.log(this.props.stop);
     let stopName = 'TBD';
-    let stopDescription = 'TBD';
+    // let stopDescription = 'TBD';
     let stopFactoids = [];
     if (this.props.stop && this.props.stop.properties) {
-      stopDescription = this.props.stop.properties.description;
+      // stopDescription = this.props.stop.properties.description;
       stopName = this.props.stop.properties.name;
       stopFactoids = this.props.stop.properties.factoids;
     }
     let slides = [];
     if (stopFactoids) {
       for (let factoid of stopFactoids) {
-        slides.push(<div><h3>{factoid}</h3></div>);
+        slides.push(<div key={slides.length}><h3>{factoid}</h3></div>);
       }
     }
     return (
       <div className="stop-info">
         <h2>Explore {stopName}</h2>
-        <div><img className="stop-picture" src="./img/discovery-square.png" /></div>
-        <div class="siema" style={{width: "580px;"}}>{slides}</div>
+        <div><img className="stop-picture" src="./img/discovery-square.png" alt="Discovery Square rendering" /></div>
+        <div className="siema" style={{width: "580px"}}>{slides}</div>
       </div>
     );
   }
