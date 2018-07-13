@@ -19,17 +19,15 @@ Follow the instructions to install olli-stop-backend before proceeding.
 4. Copy the `.env.template` file to `.env`
   - `cp .env.template .env`
   
-The file should look similar to the following:
+The file should look similar to the following (_change the CouchDB database urls to point to your CouchDB instance and database (with the appropriate credentials_):
 
 ```
 PORT=44002
-BROWSER=startChrome.js
+BROWSER=startChrome.js #optional
 REACT_APP_REMOTE_TELEMETRY_DB=http://admin:password@127.0.0.1:5984/telemetry_transitions
 REACT_APP_REMOTE_EVENT_DB=http://admin:password@127.0.0.1:5984/rule_event_transitions
 REACT_APP_OLLI_STOP_IDX=3
 ```
-
-5. Change the CouchDB database urls to point to your CouchDB instance (with the appropriate credentials)
 
 ## Running
 
@@ -39,5 +37,22 @@ REACT_APP_OLLI_STOP_IDX=3
 "proxy": "http://localhost:44000"
 ```
 
-2. Ensure you are running [olli-stop-backend](https://github.com/AccessibleOlli/olli-stop-backend)
+2. Ensure you are running [olli-stop-backend](https://github.com/AccessibleOlli/olli-stop-backend) if you want the weather component to work.
 3. `npm start`
+
+### Simulate bus movement events with [ao_sim](https://github.com/pdykes/ao_sim)
+
+1. create `telemetry_transitions` database in CouchDB/Cloudant
+1. `git clone git@github.com:pdykes/ao_sim.git`
+2. `cd ao_sim/telemetry`
+3. `export NODE_CONFIG_DIR=../config`
+4. `node telemetry.js`
+5. _in another terminal window_
+	6. `cd ao_sim/cmdline`
+	7. `export NODE_CONFIG_DIR=../config`
+	8. `node ao.js --control telemetry --operation enable`
+
+
+### Simulate bus movement events with [olli_sim](https://github.com/AccessibleOlli/olli-sim)
+
+TODO
