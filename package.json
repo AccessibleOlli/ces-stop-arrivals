@@ -7,15 +7,16 @@
     "carbon-components": "^8.1.13",
     "chrome-launcher": "^0.10.1",
     "dotenv": "^4.0.0",
+    "leveldown": "^4.0.1",
     "mapbox-gl": "^0.41.0",
-    "pouchdb": "^6.3.4",
-    "pouchdb-find": "^6.3.4",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "react-scripts": "1.0.14",
-    "react-unity-webgl": "^6.4.0",
-    "redux": "^3.7.2",
+    "pouchdb-browser": "^7.0.0",
+    "pouchdb-find": "^7.0.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "react-unity-webgl": "^7.0.6",
+    "redux": "^4.0.0",
     "siema": "^1.4.9"
   },
   "scripts": {
@@ -29,6 +30,6 @@
   "homepage": "https://accessibleolli.github.io/ces-stop-arrivals",
   "proxy": "http://localhost:44000",
   "devDependencies": {
-    "gh-pages": "^1.1.0"
+    "gh-pages": "^1.2.0"
   }
 }
